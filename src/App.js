@@ -41,24 +41,61 @@ export default function App() {
         {/* Lights Component */}
         <Lights />
         <Suspense fallback={null}>
-          {activeService == 'web-applications' && <Content
-            domContent={domContent}
-            bgColor="#f15946"
-            modelPath="/armchairYellow.gltf"
-            position={250}
-          >
-            
-            {servicesAvailable.map((service, id) => (
-              <li
-                onClick={() => setActiveService(getFirstWord(service.title))}
-                key={id}
-                className={`services ${removeSpaces(service.title)}`}
-              >
-                {service.title}
-              </li>
-            ))}
-          </Content>
-          }
+          {activeService === 'web-applications' && (
+            <Content
+              domContent={domContent}
+              bgColor="#f15946"
+              modelPath="/armchairYellow.gltf"
+              position={250}
+            >
+              {servicesAvailable.map((service, id) => (
+                <li
+                  onClick={() => setActiveService(getFirstWord(service.title))}
+                  key={id}
+                  className={`services ${removeSpaces(service.title)}`}
+                >
+                  {service.title}
+                </li>
+              ))}
+            </Content>
+          )}
+          {activeService === 'search' && (
+            <Content
+              domContent={domContent}
+              bgColor="#571ec1"
+              modelPath="/armchairGreen.gltf"
+              position={250}
+            >
+              {servicesAvailable.map((service, id) => (
+                <li
+                  onClick={() => setActiveService(getFirstWord(service.title))}
+                  key={id}
+                  className={`services ${removeSpaces(service.title)}`}
+                >
+                  {service.title}
+                </li>
+              ))}
+            </Content>
+          )}
+
+          {activeService === 'automation' && (
+            <Content
+              domContent={domContent}
+              bgColor="#636567"
+              modelPath="/armchairGray.gltf"
+              position={250}
+            >
+              {servicesAvailable.map((service, id) => (
+                <li
+                  onClick={() => setActiveService(getFirstWord(service.title))}
+                  key={id}
+                  className={`services ${removeSpaces(service.title)}`}
+                >
+                  {service.title}
+                </li>
+              ))}
+            </Content>
+          )}
           {/* <HTMLContent
             domContent={domContent}
             bgColor="#571ec1"
