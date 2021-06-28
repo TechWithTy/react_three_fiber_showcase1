@@ -84,7 +84,7 @@ header {
 }
 
 .title {
-  font-size: 1rem;
+  font-size: 2rem;
   text-align: left;
   width: 100%;
   margin: 0 auto;
@@ -104,12 +104,22 @@ li {
     2s both;
   animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 2s both;
 }
-.services.Web-Applications\&MobileApplications {
+.services.Web-Applications\&MobileApplications,
+.services.SearchEngineOptimization\&Marketing,.services.Automation\&Software {
   transition: all 0.2s ease-in-out;
 }
 .services.Web-Applications\&MobileApplications:hover {
   color: #49ff89;
-  transform: scale(1.01)
+  transform: scale(1.01);
+}
+li.services.SearchEngineOptimization\&Marketing:hover {
+  color: #10dafd;
+  transform: scale(1.01);
+}
+
+.services.Automation\&Software:hover{
+  color: #d61d9f;
+  transform: scale(1.01);
 }
 .loading {
   position: absolute;
