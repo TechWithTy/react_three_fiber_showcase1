@@ -1,15 +1,9 @@
-import Model from './Model'
-import React, { Suspense, useRef } from 'react';
-import { Canvas, useFrame } from 'react-three-fiber';
-import { Html, useGLTFLoader, useProgress } from 'drei';
+import { Html } from 'drei';
+import React, { useRef } from 'react';
+import { useFrame } from 'react-three-fiber';
+import Model from './Model';
 import { Section } from './section';
-const Content = ({
-  domContent,
-  children,
-  bgColor,
-  modelPath,
-  position,
-}) => {
+const Content = ({ domContent, children, bgColor, modelPath, position }) => {
   const ref = useRef();
   useFrame(() => (ref.current.rotation.y += 0.01));
 
@@ -28,4 +22,4 @@ const Content = ({
     </Section>
   );
 };
-export default Content
+export default Content;
