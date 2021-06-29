@@ -20,7 +20,7 @@ const removeSpaces = (string) => {
 export default function App() {
   const domContent = useRef();
 
-  const [activeService, setActiveService] = useState('web-applications');
+  const [activeService, setActiveService] = useState('search');
 
   const getFirstWord = (string) => {
     let returnString = '';
@@ -41,6 +41,7 @@ export default function App() {
         {/* Lights Component */}
         <Lights />
         <Suspense fallback={null}>
+          {/* WebApplication */}
           {activeService === 'web-applications' && (
             <Content
               domContent={domContent}
@@ -60,13 +61,14 @@ export default function App() {
               ))}
             </Content>
           )}
+          {/* SEO */}
           {activeService === 'search' && (
             <Content
               domContent={domContent}
               bgColor="#571ec1"
-              modelPath="/earth.gltf"
+              modelPath="/littlePlanet.gltf"
               groupPositionY={250}
-              meshPosition={[0, -35, 0]}
+              meshPosition={[1000, -35, -1000]}
             >
               {servicesAvailable.map((service, id) => (
                 <li
@@ -79,7 +81,7 @@ export default function App() {
               ))}
             </Content>
           )}
-
+          {/* Automation */}
           {activeService === 'automation' && (
             <Content
               domContent={domContent}
@@ -98,25 +100,6 @@ export default function App() {
               ))}
             </Content>
           )}
-          {/* <HTMLContent
-            domContent={domContent}
-            bgColor="#571ec1"
-            modelPath="/armchairGreen.gltf"
-            position={0}
-          >
-            <span>Shit... we even</span>
-            <span>got different colors</span>
-          </HTMLContent>
-          <HTMLContent
-            domContent={domContent}
-            bgColor="#636567"
-            modelPath="/armchairGray.gltf"
-            position={-250}
-          >
-            <span>And yes</span>
-            <span>we even got</span>
-            <span>monochrome!</span>
-          </HTMLContent> */}
         </Suspense>
       </Canvas>
       <Loader />
