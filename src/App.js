@@ -1,5 +1,5 @@
 // React Spring
-import React, { Suspense, useRef, useState } from 'react';
+import React, { Suspense, useRef, useState,useEffect } from 'react';
 // Page State
 // R3F
 import { Canvas } from 'react-three-fiber';
@@ -10,7 +10,7 @@ import Header from './components/header';
 import Lights from './components/Lights';
 import Loader from './components/Loader';
 import { servicesAvailable } from './data/services';
-
+import Description from './components/Description';
 const removeSpaces = (string) => {
   let returnString = '';
   returnString = string.split(' ').join('');
@@ -20,8 +20,8 @@ const removeSpaces = (string) => {
 export default function App() {
   const domContent = useRef();
 
-  const [activeService, setActiveService] = useState('search');
-
+  const [activeService, setActiveService] = useState('automation');
+  const [activeServiceObj, setActiveServiceObj] = useState({})
   const getFirstWord = (string) => {
     let returnString = '';
     returnString = string.replace(/ .*/, '');
@@ -29,6 +29,8 @@ export default function App() {
     return returnString.toLowerCase();
   };
 
+
+  
   return (
     <>
       <Header />
@@ -59,13 +61,17 @@ export default function App() {
                   {service.title}
                 </li>
               ))}
+              {
+              
+              
+              }
             </Content>
           )}
           {/* SEO */}
           {activeService === 'search' && (
             <Content
               domContent={domContent}
-              bgColor="#571ec1"
+              bgColor="#0b5190"
               modelPath="/littlePlanet.gltf"
               groupPositionY={250}
               meshPosition={[1000, -35, -1000]}
@@ -85,9 +91,10 @@ export default function App() {
           {activeService === 'automation' && (
             <Content
               domContent={domContent}
-              bgColor="#636567"
-              modelPath="/armchairGray.gltf"
-              position={250}
+              bgColor="#e96bec"
+              modelPath="/robot.gltf"
+              groupPositionY={250}
+              meshPosition={[40, -15, 30]}
             >
               {servicesAvailable.map((service, id) => (
                 <li
