@@ -45,8 +45,9 @@ export default function App() {
             <Content
               domContent={domContent}
               bgColor="#f15946"
-              modelPath="/armchairYellow.gltf"
-              position={250}
+              modelPath="/tree.gltf"
+              meshPosition={[300, -200, -550]}
+              groupPositionY={250}
             >
               {servicesAvailable.map((service, id) => (
                 <li
@@ -63,8 +64,9 @@ export default function App() {
             <Content
               domContent={domContent}
               bgColor="#571ec1"
-              modelPath="/armchairGreen.gltf"
-              position={250}
+              modelPath="/earth.gltf"
+              groupPositionY={250}
+              meshPosition={[0, -35, 0]}
             >
               {servicesAvailable.map((service, id) => (
                 <li
