@@ -53,18 +53,19 @@ export default function App() {
               groupPositionY={250}
             >
               {servicesAvailable.map((service, id) => (
-                <li
-                  onClick={() => setActiveService(getFirstWord(service.title))}
-                  key={id}
-                  className={`services ${removeSpaces(service.title)}`}
-                >
-                  {service.title}
-                </li>
+                <div className="services-catalog" style={{display: 'inline-block'}}>
+                  <li
+                    onClick={() =>
+                      setActiveService(getFirstWord(service.title))
+                    }
+                    key={id}
+                    className={`services ${removeSpaces(service.title)}`}
+                  >
+                    {service.title}
+                  </li>
+                </div>
               ))}
-              {
-              
-              
-              }
+              {}
             </Content>
           )}
           {/* SEO */}
