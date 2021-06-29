@@ -6,10 +6,10 @@ export const servicesAvailable = [
 
   {
     title: 'Search Engine Optimization & Marketing',
-    description: '',
+    description:" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis velit nihil maiores molestiae accusamus mollitia quibusdam ut, fugit ea amet, asperiores magnam pariatur repudiandae! In illo nesciunt explicabo minima voluptatem.",
   },
   {
     title: 'Automation & Software',
-    description: '',
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facere quaerat, porro suscipit dolor vitae animi quasi accusamus sint harum quidem debitis velit fuga impedit, id nostrum eligendi sit voluptate.",
   },
 ];

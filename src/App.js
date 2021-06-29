@@ -53,6 +53,7 @@ export default function App() {
               meshPosition={[400, -200, -550]}
               groupPositionY={250}
               description={activeServiceDescription}
+              activeService={activeService}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -84,6 +85,7 @@ export default function App() {
               groupPositionY={250}
               meshPosition={[1000, -35, -1000]}
               description={activeServiceDescription}
+              activeService={activeService}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -114,6 +116,7 @@ export default function App() {
               groupPositionY={250}
               meshPosition={[40, -15, 30]}
               description={activeServiceDescription}
+              activeService={activeService}
             >
               {servicesAvailable.map((service, id) => (
                 <div

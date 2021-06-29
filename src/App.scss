@@ -126,11 +126,66 @@ li.services.SearchEngineOptimization\&Marketing:hover {
   transform: scale(1.01);
 }
 
-.description-text{
-  font-style: italic;
+blockquote.web-applications {
+  background: #c5d791;
+  border-left: 10px solid #fff;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
 }
+blockquote.web-applications:before {
+  color: #dee9be;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote.search {
+  background: #0b7ee6;
+  border-left: 10px solid #fff;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote.search:before {
+  color: #0b5190;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote.automation {
+  background: #86008a;
+  border-left: 10px solid #fff;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote.automation:before {
+  color: #fff;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+blockquote  {
+  border-radius: 5%;
+}
+
 .description-div{
   text-align: center;
+}
+
+.services-list{
+  margin-top: 4em;
 }
 .loading {
   position: absolute;

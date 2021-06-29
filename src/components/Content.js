@@ -12,6 +12,7 @@ const Content = ({
   groupPositionY,
   meshPosition,
   description,
+  activeService,
 }) => {
   useEffect(() => {
     document.body.style.background = bgColor;
@@ -32,10 +33,14 @@ const Content = ({
         <Html fullscreen portal={domContent}>
           <div className="container">
             <div id="services" className="title">
-              {children}
+              <div className="services-list">{children}</div>
               <div className="description-div">
- 
-                <p id="summary" className="description-text">"{description}"</p>
+                <blockquote
+                  id="summary"
+                  className={`description-text ${activeService}`}
+                >
+                  {description}
+                </blockquote>
               </div>
             </div>
           </div>
