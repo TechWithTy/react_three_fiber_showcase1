@@ -1,14 +1,22 @@
 import { Html } from 'drei';
-import React, { useRef,useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
 import Model from './Model';
 import { Section } from './section';
 
-
-const Content = ({ domContent, children, bgColor, modelPath, groupPositionY,meshPosition }) => {
-    useEffect(() => {
-      document.body.style.background = bgColor;
-    }, [bgColor]);
+const Content = ({
+  domContent,
+  children,
+  bgColor,
+  modelPath,
+  groupPositionY,
+  meshPosition,
+  description,
+}) => {
+  useEffect(() => {
+    document.body.style.background = bgColor;
+  }, [bgColor, description]);
+  console.warn(description);
   const ref = useRef();
   useFrame(() => (ref.current.rotation.y += 0.01));
 
@@ -23,7 +31,13 @@ const Content = ({ domContent, children, bgColor, modelPath, groupPositionY,mesh
         </mesh>
         <Html fullscreen portal={domContent}>
           <div className="container">
-            <div className="title">{children}</div>
+            <div id="services" className="title">
+              {children}
+              <div className="description-div">
+ 
+                <p id="summary" className="description-text">"{description}"</p>
+              </div>
+            </div>
           </div>
         </Html>
       </group>

@@ -20,8 +20,8 @@ const removeSpaces = (string) => {
 export default function App() {
   const domContent = useRef();
 
-  const [activeService, setActiveService] = useState('automation');
-  const [activeServiceObj, setActiveServiceObj] = useState({})
+  const [activeService, setActiveService] = useState('web-applications');
+  const [activeServiceDescription, setActiveServiceDescription] = useState('Fill')
   const getFirstWord = (string) => {
     let returnString = '';
     returnString = string.replace(/ .*/, '');
@@ -39,6 +39,7 @@ export default function App() {
         concurrent
         colorManagement
         camera={{ position: [0, 0, 120], fov: 70 }}
+        description={activeServiceDescription}
       >
         {/* Lights Component */}
         <Lights />
@@ -47,17 +48,23 @@ export default function App() {
           {activeService === 'web-applications' && (
             <Content
               domContent={domContent}
-              bgColor="#f15946"
+              bgColor="#dee9be"
               modelPath="/tree.gltf"
-              meshPosition={[300, -200, -550]}
+              meshPosition={[400, -200, -550]}
               groupPositionY={250}
+              description={activeServiceDescription}
             >
               {servicesAvailable.map((service, id) => (
-                <div className="services-catalog" style={{display: 'inline-block'}}>
+                <div
+                  key={id}
+                  className="services-catalog"
+                  style={{ display: 'inline-block' }}
+                >
                   <li
-                    onClick={() =>
-                      setActiveService(getFirstWord(service.title))
-                    }
+                    onClick={() => {
+                      setActiveService(getFirstWord(service.title));
+                      setActiveServiceDescription(service.description);
+                    }}
                     key={id}
                     className={`services ${removeSpaces(service.title)}`}
                   >
@@ -76,15 +83,25 @@ export default function App() {
               modelPath="/littlePlanet.gltf"
               groupPositionY={250}
               meshPosition={[1000, -35, -1000]}
+              description={activeServiceDescription}
             >
               {servicesAvailable.map((service, id) => (
-                <li
-                  onClick={() => setActiveService(getFirstWord(service.title))}
+                <div
                   key={id}
-                  className={`services ${removeSpaces(service.title)}`}
+                  className="services-catalog"
+                  style={{ display: 'inline-block' }}
                 >
-                  {service.title}
-                </li>
+                  <li
+                    onClick={() => {
+                      setActiveService(getFirstWord(service.title));
+                      setActiveServiceDescription(service.description);
+                    }}
+                    key={id}
+                    className={`services ${removeSpaces(service.title)}`}
+                  >
+                    {service.title}
+                  </li>
+                </div>
               ))}
             </Content>
           )}
@@ -96,15 +113,25 @@ export default function App() {
               modelPath="/robot.gltf"
               groupPositionY={250}
               meshPosition={[40, -15, 30]}
+              description={activeServiceDescription}
             >
               {servicesAvailable.map((service, id) => (
-                <li
-                  onClick={() => setActiveService(getFirstWord(service.title))}
+                <div
                   key={id}
-                  className={`services ${removeSpaces(service.title)}`}
+                  className="services-catalog"
+                  style={{ display: 'inline-block' }}
                 >
-                  {service.title}
-                </li>
+                  <li
+                    onClick={() => {
+                      setActiveService(getFirstWord(service.title));
+                      setActiveServiceDescription(service.description);
+                    }}
+                    key={id}
+                    className={`services ${removeSpaces(service.title)}`}
+                  >
+                    {service.title}
+                  </li>
+                </div>
               ))}
             </Content>
           )}
