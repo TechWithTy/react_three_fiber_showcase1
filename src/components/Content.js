@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
 import Model from './Model';
 import { Section } from './section';
-
+import ContactModal from './Modal';
 const Content = ({
   domContent,
   children,
@@ -23,6 +23,7 @@ const Content = ({
 
   return (
     <Section factor={1.5} offset={1}>
+   
       <group position={[0, groupPositionY, 0]}>
         <mesh
           ref={ref}
@@ -30,6 +31,7 @@ const Content = ({
         >
           <Model url={modelPath} />
         </mesh>
+
         <Html fullscreen portal={domContent}>
           <div className="container">
             <div id="services" className="title">

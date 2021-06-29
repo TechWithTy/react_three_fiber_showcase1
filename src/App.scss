@@ -41,9 +41,24 @@ body,
   justify-content: center;
 }
 
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  z-index: 99999999999999999;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor:pointer;
+}
+.contact-us-title {
+  text-align: center;
+}
 header {
   position: absolute;
-  z-index: 99;
+  z-index: 14765197;
   width: 100%;
   padding: 60px;
   .header-inner {
@@ -64,12 +79,13 @@ header {
           list-style: none;
           margin: 0 60px;
           &.btn {
-            a {
+            button {
               color: #fff;
               font-weight: 600;
               background: #23232a;
               padding: 16px 24px;
               border-radius: 10px;
+              cursor: pointer;
             }
           }
           a {
@@ -114,16 +130,19 @@ li.services {
 }
 .services.Web-Applications\&MobileApplications:hover {
   color: #49ff89;
-  transform: scale(1.01);
+  transform: scale(2);
+  font-weight: bold;
 }
 li.services.SearchEngineOptimization\&Marketing:hover {
   color: #10dafd;
   transform: scale(1.01);
+  font-weight: bold;
 }
 
 .services.Automation\&Software:hover {
   color: #d61d9f;
   transform: scale(1.01);
+  font-weight: bold;
 }
 
 blockquote.web-applications {
@@ -131,7 +150,7 @@ blockquote.web-applications {
   border-left: 10px solid #fff;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: '\201C''\201D''\2018''\2019';
 }
 blockquote.web-applications:before {
   color: #dee9be;
@@ -147,7 +166,7 @@ blockquote.search {
   border-left: 10px solid #fff;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: '\201C''\201D''\2018''\2019';
 }
 blockquote.search:before {
   color: #0b5190;
@@ -163,7 +182,7 @@ blockquote.automation {
   border-left: 10px solid #fff;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: '\201C''\201D''\2018''\2019';
 }
 blockquote.automation:before {
   color: #fff;
@@ -176,15 +195,15 @@ blockquote.automation:before {
 blockquote p {
   display: inline;
 }
-blockquote  {
+blockquote {
   border-radius: 5%;
 }
 
-.description-div{
+.description-div {
   text-align: center;
 }
 
-.services-list{
+.services-list {
   margin-top: 4em;
 }
 .loading {

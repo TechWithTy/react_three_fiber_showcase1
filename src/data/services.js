@@ -13,3 +13,6 @@ export const servicesAvailable = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facere quaerat, porro suscipit dolor vitae animi quasi accusamus sint harum quidem debitis velit fuga impedit, id nostrum eligendi sit voluptate.",
   },
 ];
+
+
+export const initialQuote = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aut assumenda est quidem magni. Quia quaerat nobis aliquam totam eum ut provident, itaque iusto! Voluptatem soluta iste non officiis voluptas."

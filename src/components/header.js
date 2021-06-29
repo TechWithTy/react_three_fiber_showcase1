@@ -1,26 +1,29 @@
-import React from "react";
+import React,{useState} from "react";
+import ContactModal from "./Modal";
 
+ 
 export default function Header() {
+   const [modalOpen, setModalOpen] = useState(false);
+
+   const setModalState = () => {
+     setModalOpen(!modalOpen);
+   };
   return (
     <header>
-      <div className='header-inner'>
-        <div className='logo'>CHAIR.</div>
+      <div className="header-inner">
+        <div className="logo">CHAIR.</div>
         <nav>
           <ul>
-            <li>
-              <a href='/'>discover</a>
-            </li>
-            <li>
-              <a href='/'>products</a>
-            </li>
-            <li>
-              <a href='/'>solutions</a>
-            </li>
-            <li>
-              <a href='/'>reach</a>
-            </li>
-            <li className='btn'>
-              <a href='/'>order</a>
+            <ContactModal modalOpen={modalOpen} setModalState={setModalState} />
+            <li className="btn">
+              <button
+                id="contact-us"
+                onClick={() => {
+                  setModalState();
+                }}
+              >
+                order
+              </button>
             </li>
           </ul>
         </nav>

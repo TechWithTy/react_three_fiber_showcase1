@@ -1,16 +1,14 @@
 // React Spring
-import React, { Suspense, useRef, useState,useEffect } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 // Page State
 // R3F
 import { Canvas } from 'react-three-fiber';
 import './App.scss';
 import Content from './components/Content';
 import Header from './components/header';
-//Components
 import Lights from './components/Lights';
 import Loader from './components/Loader';
-import { servicesAvailable } from './data/services';
-import Description from './components/Description';
+import { initialQuote, servicesAvailable } from './data/services';
 const removeSpaces = (string) => {
   let returnString = '';
   returnString = string.split(' ').join('');
@@ -21,7 +19,8 @@ export default function App() {
   const domContent = useRef();
 
   const [activeService, setActiveService] = useState('web-applications');
-  const [activeServiceDescription, setActiveServiceDescription] = useState('Fill')
+  const [activeServiceDescription, setActiveServiceDescription] =
+    useState(initialQuote);
   const getFirstWord = (string) => {
     let returnString = '';
     returnString = string.replace(/ .*/, '');
@@ -29,11 +28,10 @@ export default function App() {
     return returnString.toLowerCase();
   };
 
-
-  
   return (
     <>
       <Header />
+
       {/* R3F Canvas */}
       <Canvas
         concurrent
@@ -50,7 +48,7 @@ export default function App() {
               domContent={domContent}
               bgColor="#dee9be"
               modelPath="/tree.gltf"
-              meshPosition={[400, -200, -550]}
+              meshPosition={[500, -300, -450]}
               groupPositionY={250}
               description={activeServiceDescription}
               activeService={activeService}
@@ -114,7 +112,7 @@ export default function App() {
               bgColor="#e96bec"
               modelPath="/robot.gltf"
               groupPositionY={250}
-              meshPosition={[40, -15, 30]}
+              meshPosition={[45, -15, 50]}
               description={activeServiceDescription}
               activeService={activeService}
             >
