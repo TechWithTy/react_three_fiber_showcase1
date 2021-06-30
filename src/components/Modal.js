@@ -43,7 +43,7 @@ function ContactModal({ modalOpen, setModalState }) {
     setEmailError(emailValidation(data.email));
       setMessageError(messageValidation(data.message));
       let noErrors = (!nameError && !phoneError && !emailError && !messageError);
-     
+    
       if (noErrors) {
            try {
              const templateParams = {
@@ -53,10 +53,10 @@ function ContactModal({ modalOpen, setModalState }) {
                message: data.message,
              };
              await emailjs.send(
-               'default_service',
-               'template_xoc1upm',
+               process.env.REACT_APP_SERVICE_ID,
+               process.env.REACT_APP_TEMPLATE_ID,
                templateParams,
-               'user_ra9kLqa47SSFhb4QI3Swp'
+               process.env.REACT_APP_USER_ID
              );
              reset();
            } catch (e) {
