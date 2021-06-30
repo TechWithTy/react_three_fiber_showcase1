@@ -65,7 +65,7 @@ p.error::before {
   content: "⚠ ";
 }
 
-input {
+input,textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
