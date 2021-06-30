@@ -38,14 +38,30 @@ function ContactModal({ modalOpen, setModalState }) {
   }
 
   const onSubmit = async (data) => {
-    setNameError(nameValidation(data.firstName));
+    setNameError(nameValidation(data.name));
     setphoneError(phoneNumberValidation(data.phoneNumber));
     setEmailError(emailValidation(data.email));
       setMessageError(messageValidation(data.message));
       let noErrors = (!nameError && !phoneError && !emailError && !messageError);
      
       if (noErrors) {
-          console.log(data)
+           try {
+             const templateParams = {
+               name: data.name,
+               email: data.email,
+               number: data.phoneNumber,
+               message: data.message,
+             };
+             await emailjs.send(
+               'default_service',
+               'template_xoc1upm',
+               templateParams,
+               'user_ra9kLqa47SSFhb4QI3Swp'
+             );
+             reset();
+           } catch (e) {
+             console.log(e);
+           }
       }
     
   };
@@ -77,7 +93,7 @@ function ContactModal({ modalOpen, setModalState }) {
                 <div className="contactForm">
                   <form onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                     <label>First And Last Name</label>
-                    <input autoFocus {...register('firstName')} />
+                    <input autoFocus {...register('name')} />
                     {nameError && <p className="error">{nameError}</p>}
                     <label>Phone Number</label>
                     <input type="number" {...register('phoneNumber')} />
