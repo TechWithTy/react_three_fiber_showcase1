@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
+import emailjs from 'emailjs-com';
+
 import {
   emailValidation,
   messageValidation,
@@ -25,7 +27,7 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 function ContactModal({ modalOpen, setModalState }) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const [nameError, setNameError] = useState(false);
   const [phoneError, setphoneError] = useState(false);
   const [emailError, setEmailError] = useState(false);
@@ -39,9 +41,13 @@ function ContactModal({ modalOpen, setModalState }) {
     setNameError(nameValidation(data.firstName));
     setphoneError(phoneNumberValidation(data.phoneNumber));
     setEmailError(emailValidation(data.email));
-    setMessageError(messageValidation(data.message));
-
-    console.log(data.firstName.length, data.firstName);
+      setMessageError(messageValidation(data.message));
+      let noErrors = (!nameError && !phoneError && !emailError && !messageError);
+     
+      if (noErrors) {
+          console.log(data)
+      }
+    
   };
 
   return (
@@ -69,9 +75,9 @@ function ContactModal({ modalOpen, setModalState }) {
             <div className="row">
               <div className="col-12 text-center">
                 <div className="contactForm">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  <form onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                     <label>First And Last Name</label>
-                    <input {...register('firstName')} />
+                    <input autoFocus {...register('firstName')} />
                     {nameError && <p className="error">{nameError}</p>}
                     <label>Phone Number</label>
                     <input type="number" {...register('phoneNumber')} />
@@ -86,9 +92,8 @@ function ContactModal({ modalOpen, setModalState }) {
                       cols="60"
                       name="description"
                       {...register('message')}
-                    >
-                      Enter details here.../
-                    </textarea>
+                    />
+
                     {messageError && <p className="error">{messageError}</p>}
 
                     <br></br>

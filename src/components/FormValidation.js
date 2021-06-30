@@ -18,8 +18,8 @@ export const nameValidation = function nameValidation(name) {
 };
 
 export const phoneNumberValidation = (number) => {
-  if (number.length !== 10) {
-    return 'A Phone Number Must be nine digits';
+    if (number.length !== 10 ) {
+    return 'A Phone Number Must be ten digits';
   }
   if (hasCharacter.test(number)) {
     return 'A Phone Number Shouldnt Contain A Letter';
