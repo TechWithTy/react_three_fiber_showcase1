@@ -60,7 +60,7 @@ function ContactModal({ modalOpen, setModalState }) {
         contentLabel="Example Modal"
       >
         <h1 id="contact-us-title" className="contact-us-title">
-          Contact Us
+         
         </h1>
         <button
           id="close-button"
@@ -88,7 +88,7 @@ function ContactModal({ modalOpen, setModalState }) {
                     <label>Message</label>
 
                     <textarea
-                      rows="5"
+                      rows="2.5"
                       cols="60"
                       name="description"
                       {...register('message')}
