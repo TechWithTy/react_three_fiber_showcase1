@@ -2,6 +2,8 @@
 import React, { Suspense, useRef, useState } from 'react';
 // Page State
 // R3F
+import 'bootstrap/dist/css/bootstrap.css';
+
 import { Canvas } from 'react-three-fiber';
 import './App.scss';
 import Content from './components/Content';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
@@ -17,17 +17,12 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root');
 
-function ContactModal({modalOpen,setModalState}) {
-
-
-
-
+function ContactModal({ modalOpen, setModalState }) {
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-  
-  }
+    }
+    
 
- 
   return (
     <div>
       <Modal
@@ -48,69 +43,65 @@ function ContactModal({modalOpen,setModalState}) {
           X
         </button>
 
-        <form>
-          <div className="ContactForm">
-            <div className="container">
-              <div className="row">
-                <div className="col-12 text-center">
-                  <div className="contactForm">
-                    <form id="contact-form" noValidate>
-                      {/* Row 1 of form */}
-                      <div className="row formRow">
-                        <div className="col-6">
-                          <input
-                            type="text"
-                            name="name"
-                            className="form-control formInput"
-                            placeholder="Name"
-                          ></input>
-                        </div>
-                        <div className="col-6">
-                          <input
-                            type="email"
-                            name="email"
-                            className="form-control formInput"
-                            placeholder="Email address"
-                          ></input>
-                        </div>
+        <div className="ContactForm">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 text-center">
+                <div className="contactForm">
+                  <form id="contact-form" noValidate>
+                    {/* Row 1 of form */}
+                    <div className="row formRow">
+                      <div className="col-6">
+                        <input
+                          type="text"
+                          name="name"
+                          className="form-control formInput"
+                          placeholder="Name"
+                        ></input>
                       </div>
-                      {/* Row 2 of form */}
-                      <div className="row formRow">
-                        <div className="col">
-                          <input
-                            type="text"
-                            name="subject"
-                            className="form-control formInput"
-                            placeholder="Subject"
-                          ></input>
-                        </div>
+                      <div className="col-6">
+                        <input
+                          type="email"
+                          name="email"
+                          className="form-control formInput"
+                          placeholder="Email address"
+                        ></input>
                       </div>
-                      {/* Row 3 of form */}
-                      <div className="row formRow">
-                        <div className="col">
-                          <textarea
-                            rows={3}
-                            name="message"
-                            className="form-control formInput"
-                            placeholder="Message"
-                          ></textarea>
-                        </div>
+                    </div>
+                    {/* Row 2 of form */}
+                    <div className="row formRow">
+                      <div className="col">
+                        <input
+                          type="text"
+                          name="subject"
+                          className="form-control formInput"
+                          placeholder="Subject"
+                        ></input>
                       </div>
-                      <button className="submit-btn" type="submit">
-                        Submit
-                      </button>
-                    </form>
-                  </div>
+                    </div>
+                    {/* Row 3 of form */}
+                    <div className="row formRow">
+                      <div className="col">
+                        <textarea
+                          rows={3}
+                          name="message"
+                          className="form-control formInput"
+                          placeholder="Message"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <button className="submit-btn" type="submit">
+                      Submit
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </Modal>
     </div>
   );
 }
 
-
 export default ContactModal;
-
