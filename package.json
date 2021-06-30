@@ -23,7 +23,6 @@
     "react-spring": "^8.0.27",
     "react-three-fiber": "^4.2.21",
     "react-toastify": "^7.0.4",
-    "reactstrap": "^8.9.0",
     "three": "^0.120.1"
   },
   "scripts": {

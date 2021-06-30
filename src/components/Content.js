@@ -17,7 +17,7 @@ const Content = ({
   useEffect(() => {
     document.body.style.background = bgColor;
   }, [bgColor, description]);
-  console.warn(description);
+
   const ref = useRef();
   useFrame(() => (ref.current.rotation.y += 0.01));
 

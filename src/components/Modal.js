@@ -1,7 +1,7 @@
-import React,{useState} from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
-
+import { nameValidation } from './FormValidation';
 const customStyles = {
   content: {
     top: '50%',
@@ -11,6 +11,7 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     zIndex: '99999999999999999999999999',
+    background: 'grey',
   },
 };
 
@@ -18,10 +19,16 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 function ContactModal({ modalOpen, setModalState }) {
+  const { register, handleSubmit } = useForm();
+  const [nameError, setNameError] = useState(false);
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    }
-    
+  }
+
+  const onSubmit = async (data) => {
+    setNameError(nameValidation(data.firstName))
+    console.log(data.firstName.length, data.firstName);
+  };
 
   return (
     <div>
@@ -48,51 +55,17 @@ function ContactModal({ modalOpen, setModalState }) {
             <div className="row">
               <div className="col-12 text-center">
                 <div className="contactForm">
-                  <form id="contact-form" noValidate>
-                    {/* Row 1 of form */}
-                    <div className="row formRow">
-                      <div className="col-6">
-                        <input
-                          type="text"
-                          name="name"
-                          className="form-control formInput"
-                          placeholder="Name"
-                        ></input>
-                      </div>
-                      <div className="col-6">
-                        <input
-                          type="email"
-                          name="email"
-                          className="form-control formInput"
-                          placeholder="Email address"
-                        ></input>
-                      </div>
-                    </div>
-                    {/* Row 2 of form */}
-                    <div className="row formRow">
-                      <div className="col">
-                        <input
-                          type="text"
-                          name="subject"
-                          className="form-control formInput"
-                          placeholder="Subject"
-                        ></input>
-                      </div>
-                    </div>
-                    {/* Row 3 of form */}
-                    <div className="row formRow">
-                      <div className="col">
-                        <textarea
-                          rows={3}
-                          name="message"
-                          className="form-control formInput"
-                          placeholder="Message"
-                        ></textarea>
-                      </div>
-                    </div>
-                    <button className="submit-btn" type="submit">
-                      Submit
-                    </button>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <label>First And Last Name</label>
+                    <input {...register('firstName')} />
+                    {nameError && (
+                      <p className="error">
+                        {nameError}
+                      </p>
+                    )}
+                    <label>Laste Name</label>
+                    <input {...register('lastName')} />
+                    <input type="submit" />
                   </form>
                 </div>
               </div>
