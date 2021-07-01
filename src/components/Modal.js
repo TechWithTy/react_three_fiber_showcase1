@@ -20,7 +20,7 @@ const customStyles = {
     width: '30%',
     transform: 'translate(-50%, -50%)',
     zIndex: '99999999999999999999999999',
-    background: 'grey',
+    background: '#000000b5',
   },
 };
 
@@ -88,7 +88,7 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
     
   };
 
-  // useEffect(() => {}, [noErrors]);
+  useEffect(() => {}, [nameError]);
   return (
     <div>
       <Modal

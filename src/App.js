@@ -1,10 +1,10 @@
 // React Spring
-import React, { Suspense, useRef, useState } from 'react';
+import React, { Suspense, useRef, useState,useEffect } from 'react';
 // Page State
 // R3F
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useThree } from 'react-three-fiber';
 import './App.scss';
 import Content from './components/Content';
 import Header from './components/header';
@@ -33,7 +33,9 @@ export default function App() {
     console.log(returnString);
     return returnString.toLowerCase();
   };
-
+useEffect(() => {
+  
+}, [input])
   return (
     <>
       <Header toast={toast} ToastContainer={ToastContainer} />
