@@ -21,9 +21,11 @@ const removeSpaces = (string) => {
   return returnString.replace(/\//g, '');
 };
 
+
+
 export default function App() {
   const domContent = useRef();
-
+let windowWidth = window.innerWidth;
   const [activeService, setActiveService] = useState('web-applications');
   const [activeServiceDescription, setActiveServiceDescription] =
     useState(initialQuote);
@@ -33,9 +35,10 @@ export default function App() {
     console.log(returnString);
     return returnString.toLowerCase();
   };
-useEffect(() => {
-  
-}, [input])
+  const { size, viewport } = useThree();
+
+  useEffect(() => {}, [windowWidth]);
+
   return (
     <>
       <Header toast={toast} ToastContainer={ToastContainer} />
@@ -56,7 +59,9 @@ useEffect(() => {
               domContent={domContent}
               bgColor="#dee9be"
               modelPath="/tree.gltf"
-              meshPosition={[500, -300, -450]}
+              meshPosition={
+                windowWidth >= 1000 ? [500, -300, -450] : [0, -300, -300]
+              }
               groupPositionY={250}
               description={activeServiceDescription}
               activeService={activeService}
@@ -120,7 +125,7 @@ useEffect(() => {
               bgColor="#e96bec"
               modelPath="/robot.gltf"
               groupPositionY={250}
-              meshPosition={[45, -15, 50]}
+              meshPosition={windowWidth >= 1000 ? [45, -15, 50]: [0,-10,50]}
               description={activeServiceDescription}
               activeService={activeService}
             >
@@ -146,7 +151,7 @@ useEffect(() => {
           )}
         </Suspense>
       </Canvas>
-      
+
       <Loader />
     </>
   );
