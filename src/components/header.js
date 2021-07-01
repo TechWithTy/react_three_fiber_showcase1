@@ -1,8 +1,9 @@
 import React,{useState} from "react";
+import { ToastContainer } from "react-toastify";
 import ContactModal from "./Modal";
-
+import {Logo} from  "../transparentLogo.png"
  
-export default function Header() {
+export default function Header({toast, ToastContainer}) {
    const [modalOpen, setModalOpen] = useState(false);
 
    const setModalState = () => {
@@ -11,10 +12,15 @@ export default function Header() {
   return (
     <header>
       <div className="header-inner">
-        <div className="logo">CHAIR.</div>
+        <img src={require('../transparentLogo.png')} className="logo" alt="cyber oni logo" />
         <nav>
           <ul>
-            <ContactModal modalOpen={modalOpen} setModalState={setModalState} />
+            <ContactModal
+              ToastContainer={ToastContainer}
+              toast={toast}
+              modalOpen={modalOpen}
+              setModalState={setModalState}
+            />
             <li className="btn">
               <button
                 id="contact-us"
@@ -22,7 +28,7 @@ export default function Header() {
                   setModalState();
                 }}
               >
-                order
+                Contact Us
               </button>
             </li>
           </ul>

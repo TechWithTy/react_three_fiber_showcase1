@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import emailjs from 'emailjs-com';
@@ -9,6 +9,7 @@ import {
   nameValidation,
   phoneNumberValidation,
 } from './FormValidation';
+
 const customStyles = {
   content: {
     top: '50%',
@@ -26,18 +27,38 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root');
 
-function ContactModal({ modalOpen, setModalState }) {
-  const { register, handleSubmit,reset } = useForm();
-  const [nameError, setNameError] = useState(false);
-  const [phoneError, setphoneError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-  const [messageError, setMessageError] = useState(false);
+function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
+  const { register, handleSubmit, reset } = useForm();
+  const [nameError, setNameError] = useState(' ');
+  const [phoneError, setphoneError] = useState(' ');
+  const [emailError, setEmailError] = useState(' ');
+  const [messageError, setMessageError] = useState(' ');
+  // const [noErrors, setNoErrors] = useState(false);
+  const toastifySuccess = () => {
+    toast(' ✅ Well Be in Contact With You Soon', {
+      position: 'top-right',
+      autoClose: 5000,
+      closeButton: false,
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      className: 'submit-feedback success',
+      toastId: 'notifyToast',
+    });
+  };
+
+  function usePrevious(value) {
+    const ref = useRef();
+    useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
   }
 
-  const onSubmit = async (data) => {
+  // const prevError = usePrevious(noErrors);
+
+    const onSubmit = async (data) => {
     setNameError(nameValidation(data.name));
     setphoneError(phoneNumberValidation(data.phoneNumber));
     setEmailError(emailValidation(data.email));
@@ -46,19 +67,20 @@ function ContactModal({ modalOpen, setModalState }) {
     
       if (noErrors) {
            try {
-             const templateParams = {
-               name: data.name,
-               email: data.email,
-               number: data.phoneNumber,
-               message: data.message,
-             };
-             await emailjs.send(
-               process.env.REACT_APP_SERVICE_ID,
-               process.env.REACT_APP_TEMPLATE_ID,
-               templateParams,
-               process.env.REACT_APP_USER_ID
-             );
+            //  const templateParams = {
+            //    name: data.name,
+            //    email: data.email,
+            //    number: data.phoneNumber,
+            //    message: data.message,
+            //  };
+            //  await emailjs.send(
+            //    process.env.REACT_APP_SERVICE_ID,
+            //    process.env.REACT_APP_TEMPLATE_ID,
+            //    templateParams,
+            //    process.env.REACT_APP_USER_ID
+            //  );
              reset();
+             toastifySuccess();
            } catch (e) {
              console.log(e);
            }
@@ -66,18 +88,15 @@ function ContactModal({ modalOpen, setModalState }) {
     
   };
 
+  // useEffect(() => {}, [noErrors]);
   return (
     <div>
       <Modal
         isOpen={modalOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={setModalState}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h1 id="contact-us-title" className="contact-us-title">
-         
-        </h1>
         <button
           id="close-button"
           className="close-button"
@@ -93,14 +112,24 @@ function ContactModal({ modalOpen, setModalState }) {
                 <div className="contactForm">
                   <form onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                     <label>First And Last Name</label>
-                    <input autoFocus {...register('name')} />
-                    {nameError && <p className="error">{nameError}</p>}
+                    <input
+                    
+                      autoFocus
+                      {...register('name')}
+                    />
+                    {nameError.length > 5 && (
+                      <p className="error">{nameError}</p>
+                    )}
                     <label>Phone Number</label>
                     <input type="number" {...register('phoneNumber')} />
-                    {phoneError && <p className="error">{phoneError}</p>}
+                    {phoneError.length > 5 && (
+                      <p className="error">{phoneError}</p>
+                    )}
                     <label>Email Address</label>
                     <input type="email" {...register('email')} />
-                    {emailError && <p className="error">{emailError}</p>}
+                    {emailError.length > 5 && (
+                      <p className="error">{emailError}</p>
+                    )}
                     <label>Message</label>
 
                     <textarea
@@ -110,7 +139,9 @@ function ContactModal({ modalOpen, setModalState }) {
                       {...register('message')}
                     />
 
-                    {messageError && <p className="error">{messageError}</p>}
+                    {messageError.length > 5 && (
+                      <p className="error">{messageError}</p>
+                    )}
 
                     <br></br>
                     <input type="submit" />
@@ -121,6 +152,7 @@ function ContactModal({ modalOpen, setModalState }) {
           </div>
         </div>
       </Modal>
+      <ToastContainer />
     </div>
   );
 }

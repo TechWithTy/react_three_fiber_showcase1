@@ -10,7 +10,11 @@ import Content from './components/Content';
 import Header from './components/header';
 import Lights from './components/Lights';
 import Loader from './components/Loader';
+
 import { initialQuote, servicesAvailable } from './data/services';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const removeSpaces = (string) => {
   let returnString = '';
   returnString = string.split(' ').join('');
@@ -32,7 +36,7 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <Header toast={toast} ToastContainer={ToastContainer} />
 
       {/* R3F Canvas */}
       <Canvas
@@ -140,6 +144,7 @@ export default function App() {
           )}
         </Suspense>
       </Canvas>
+      
       <Loader />
     </>
   );

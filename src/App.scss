@@ -80,6 +80,16 @@ textarea {
 button#close-button {
   font-size: 1.2em;
 }
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open{
+  background-color: transparent !important;
+}
+
+.Toastify__toast--default {
+    background: #00ff1f !important;
+    color: #fff !important;
+    text-align: center;
+}
 label {
   line-height: 2;
   text-align: left;
@@ -91,7 +101,13 @@ label {
   font-weight: 200;
   text-align: center;
 }
-
+img.logo{
+  width: 5% !important;
+}
+button#contact-us{
+  background-color: transparent;
+  border-color: white;
+}
 button[type='submit'],
 input[type='submit'] {
   background: #ec5990;
