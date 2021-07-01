@@ -78,9 +78,17 @@ textarea {
 }
 
 button#close-button {
-  font-size: 1.2em;
+    font-size: 1.5em;
+    margin: .5em;
+    color: white;
 }
-
+button:hover {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
+}
 .ReactModal__Overlay.ReactModal__Overlay--after-open{
   background-color: transparent !important;
 }
@@ -246,7 +254,7 @@ li.services {
 .services.SearchEngineOptimization\&Marketing,
 .services.Automation\&Software {
   transition: all 0.2s ease-in-out;
-
+text-shadow: -4px 1px 2px #000000;
   -webkit-animation: scale-up-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
@@ -354,6 +362,10 @@ blockquote {
 
 
 @media screen and (max-width: 1000px) {
+
+  .ReactModal__Content.ReactModal__Content--after-open{
+    width: 70% !important;
+  }
  .title {
  text-align: center;
   margin: 0 0;
@@ -391,6 +403,9 @@ blockquote{
   @media screen and (max-width: 405px) {
   li.services{
     margin: .2em .2em;
+  }
+  .ReactModal__Content.ReactModal__Content--after-open{
+    width: 100% !important;
   }
 }
 

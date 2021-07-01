@@ -35,7 +35,7 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
   const [messageError, setMessageError] = useState(' ');
   // const [noErrors, setNoErrors] = useState(false);
   const toastifySuccess = () => {
-    toast(' ✅ Well Be in Contact With You Soon', {
+    toast(' ✅ We`ll Be in Contact With You Soon', {
       position: 'top-right',
       autoClose: 5000,
       closeButton: false,
@@ -48,13 +48,6 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
     });
   };
 
-  function usePrevious(value) {
-    const ref = useRef();
-    useEffect(() => {
-      ref.current = value;
-    });
-    return ref.current;
-  }
 
   // const prevError = usePrevious(noErrors);
 
