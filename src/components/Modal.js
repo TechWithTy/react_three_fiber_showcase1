@@ -59,11 +59,16 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
   // const prevError = usePrevious(noErrors);
 
     const onSubmit = async (data) => {
-    setNameError(nameValidation(data.name));
-    setphoneError(phoneNumberValidation(data.phoneNumber));
-    setEmailError(emailValidation(data.email));
-      setMessageError(messageValidation(data.message));
-      let noErrors = (!nameError && !phoneError && !emailError && !messageError);
+        const nameErr = nameValidation(data.name);
+        const phoneErr = phoneNumberValidation(data.phoneNumber);
+        const emailErr = emailValidation(data.email);
+        const messageErr = messageValidation(data.message);
+        setNameError(nameErr);
+        setphoneError(phoneErr);
+        setEmailError(emailErr);
+        setMessageError(messageErr);
+        let noErrors = !nameErr && !phoneErr && !emailErr && !messageErr;
+
     
       if (noErrors) {
            try {
