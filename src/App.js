@@ -1,10 +1,10 @@
 // React Spring
-import React, { Suspense, useRef, useState,useEffect } from 'react';
+import React, { Suspense, useRef, useState, useEffect } from 'react';
 // Page State
 // R3F
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useThree } from 'react-three-fiber';
 import './App.scss';
 import Content from './components/Content';
 import Header from './components/header';
@@ -21,11 +21,9 @@ const removeSpaces = (string) => {
   return returnString.replace(/\//g, '');
 };
 
-
-
 export default function App() {
   const domContent = useRef();
-let windowWidth = window.innerWidth;
+  let windowWidth = window.innerWidth;
   const [activeService, setActiveService] = useState('web-applications');
   const [activeServiceDescription, setActiveServiceDescription] =
     useState(initialQuote);
@@ -35,7 +33,7 @@ let windowWidth = window.innerWidth;
     console.log(returnString);
     return returnString.toLowerCase();
   };
-
+  const { size, viewport } = useThree();
 
   useEffect(() => {}, [windowWidth]);
 
@@ -63,7 +61,7 @@ let windowWidth = window.innerWidth;
               groupPositionY={250}
               description={activeServiceDescription}
               activeService={activeService}
-              rotate={true}
+              status={0}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -96,7 +94,7 @@ let windowWidth = window.innerWidth;
               meshPosition={[1000, -35, -1000]}
               description={activeServiceDescription}
               activeService={activeService}
-              rotate={true}
+              status={1}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -128,7 +126,7 @@ let windowWidth = window.innerWidth;
               meshPosition={windowWidth >= 1000 ? [45, -15, 50] : [0, -10, 50]}
               description={activeServiceDescription}
               activeService={activeService}
-              rotate={true}
+              status={0}
             >
               {servicesAvailable.map((service, id) => (
                 <div
