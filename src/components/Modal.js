@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import emailjs from 'emailjs-com';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
-import emailjs from 'emailjs-com';
-
 import {
   emailValidation,
   messageValidation,
@@ -48,42 +47,39 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
     });
   };
 
-
   // const prevError = usePrevious(noErrors);
 
-    const onSubmit = async (data) => {
-        const nameErr = nameValidation(data.name);
-        const phoneErr = phoneNumberValidation(data.phoneNumber);
-        const emailErr = emailValidation(data.email);
-        const messageErr = messageValidation(data.message);
-        setNameError(nameErr);
-        setphoneError(phoneErr);
-        setEmailError(emailErr);
-        setMessageError(messageErr);
-        let noErrors = !nameErr && !phoneErr && !emailErr && !messageErr;
+  const onSubmit = async (data) => {
+    const nameErr = nameValidation(data.name);
+    const phoneErr = phoneNumberValidation(data.phoneNumber);
+    const emailErr = emailValidation(data.email);
+    const messageErr = messageValidation(data.message);
+    setNameError(nameErr);
+    setphoneError(phoneErr);
+    setEmailError(emailErr);
+    setMessageError(messageErr);
+    let noErrors = !nameErr && !phoneErr && !emailErr && !messageErr;
 
-    
-      if (noErrors) {
-           try {
-            //  const templateParams = {
-            //    name: data.name,
-            //    email: data.email,
-            //    number: data.phoneNumber,
-            //    message: data.message,
-            //  };
-            //  await emailjs.send(
-            //    process.env.REACT_APP_SERVICE_ID,
-            //    process.env.REACT_APP_TEMPLATE_ID,
-            //    templateParams,
-            //    process.env.REACT_APP_USER_ID
-            //  );
-             reset();
-             toastifySuccess();
-           } catch (e) {
-             console.log(e);
-           }
+    if (noErrors) {
+      try {
+        const templateParams = {
+          name: data.name,
+          email: data.email,
+          number: data.phoneNumber,
+          message: data.message,
+        };
+        await emailjs.send(
+          process.env.REACT_APP_SERVICE_ID,
+          process.env.REACT_APP_TEMPLATE_ID,
+          templateParams,
+          process.env.REACT_APP_USER_ID
+        );
+        reset();
+        toastifySuccess();
+      } catch (e) {
+        console.log(e);
       }
-    
+    }
   };
 
   useEffect(() => {}, [nameError]);
@@ -110,11 +106,7 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
                 <div className="contactForm">
                   <form onSubmit={handleSubmit(onSubmit)} autoComplete="on">
                     <label>First And Last Name</label>
-                    <input
-                    
-                      autoFocus
-                      {...register('name')}
-                    />
+                    <input autoFocus {...register('name')} />
                     {nameError.length > 5 && (
                       <p className="error">{nameError}</p>
                     )}

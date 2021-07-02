@@ -1,18 +1,20 @@
-import React,{useState} from "react";
-import { ToastContainer } from "react-toastify";
-import ContactModal from "./Modal";
-import {Logo} from  "../transparentLogo.png"
- 
-export default function Header({toast, ToastContainer}) {
-   const [modalOpen, setModalOpen] = useState(false);
+import React, { useState } from 'react';
+import ContactModal from './Modal';
 
-   const setModalState = () => {
-     setModalOpen(!modalOpen);
-   };
+export default function Header({ toast, ToastContainer }) {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const setModalState = () => {
+    setModalOpen(!modalOpen);
+  };
   return (
     <header>
       <div className="header-inner">
-        <img src={require('../transparentLogo.png')} className="logo" alt="cyber oni logo" />
+        <img
+          src={require('../transparentLogo.png')}
+          className="logo"
+          alt="cyber oni logo"
+        />
         <nav>
           <ul>
             <ContactModal

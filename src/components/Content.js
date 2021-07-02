@@ -12,13 +12,14 @@ const Content = ({
   meshPosition,
   description,
   activeService,
+  rotate
 }) => {
   useEffect(() => {
     document.body.style.background = bgColor;
   }, [bgColor, description]);
 
   const ref = useRef();
-  useFrame(() => (ref.current.rotation.y += 0.01));
+ useFrame(() => ( rotate ? ref.current.rotation.y += 0.01: ''));
 
   return (
     <Section factor={1.5} offset={1}>

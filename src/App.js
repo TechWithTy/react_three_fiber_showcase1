@@ -4,7 +4,7 @@ import React, { Suspense, useRef, useState,useEffect } from 'react';
 // R3F
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Canvas, useThree } from 'react-three-fiber';
+import { Canvas } from 'react-three-fiber';
 import './App.scss';
 import Content from './components/Content';
 import Header from './components/header';
@@ -35,7 +35,7 @@ let windowWidth = window.innerWidth;
     console.log(returnString);
     return returnString.toLowerCase();
   };
-  const { size, viewport } = useThree();
+
 
   useEffect(() => {}, [windowWidth]);
 
@@ -97,6 +97,7 @@ let windowWidth = window.innerWidth;
               meshPosition={[1000, -35, -1000]}
               description={activeServiceDescription}
               activeService={activeService}
+              rotate={true}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -125,9 +126,10 @@ let windowWidth = window.innerWidth;
               bgColor="#e96bec"
               modelPath="/robot.gltf"
               groupPositionY={250}
-              meshPosition={windowWidth >= 1000 ? [45, -15, 50]: [0,-10,50]}
+              meshPosition={windowWidth >= 1000 ? [45, -15, 50] : [0, -10, 50]}
               description={activeServiceDescription}
               activeService={activeService}
+              rotate={true}
             >
               {servicesAvailable.map((service, id) => (
                 <div
