@@ -1,11 +1,11 @@
-import React,{useEffect} from 'react'
+import React from 'react';
 
 const Description = (serviceDescription) => {
-    return (
-        <div>
-            serviceDescription
-        </div>
-    )
-}
+  return (
+    <div>
+      <p style={{ testStyle: 'italic' }}>serviceDescription</p>
+    </div>
+  );
+};
 
-export default Description
+export default Description;

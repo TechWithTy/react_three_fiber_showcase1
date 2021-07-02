@@ -1,18 +1,22 @@
 export const servicesAvailable = [
   {
     title: 'Web-Applications & Mobile Applications',
-    description: "Establish Your Online Presence And Grow Your Business",
+    description:
+      'Our Fast, Interactive Web and Mobile Applications Will Keep Your Customers Engaged While Establishing Your Online Presence and Growing your business.',
   },
 
   {
     title: 'Search Engine Optimization & Marketing',
-    description:" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis velit nihil maiores molestiae accusamus mollitia quibusdam ut, fugit ea amet, asperiores magnam pariatur repudiandae! In illo nesciunt explicabo minima voluptatem.",
+    description:
+      'With our fast, robust, and user-friendly applications your business will rank higher in search engines, which in turn helps bring more qualified potential customers to your sites and eventually increases conversion rates.',
   },
   {
     title: 'Automation & Software',
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facere quaerat, porro suscipit dolor vitae animi quasi accusamus sint harum quidem debitis velit fuga impedit, id nostrum eligendi sit voluptate.",
+    description:
+      'Our Custom Software eliminates human error, improves customer support, helps generate more leads, helps improve rapport with consumers, and helps gather data for future campaigns.',
   },
 ];
 
 
-export const initialQuote = "Engage and Grow Your Customer Base"
+export const initialQuote =
+  ' Engage your online presence while attracting new customers and lightening your workload.';
