@@ -58,13 +58,12 @@ let windowWidth = window.innerWidth;
             <Content
               domContent={domContent}
               bgColor="#dee9be"
-              modelPath="/tree.gltf"
-              meshPosition={
-                windowWidth >= 1000 ? [500, -300, -450] : [0, -300, -300]
-              }
+              modelPath="/forest.gltf"
+              meshPosition={windowWidth >= 1000 ? [0, -35, 0] : [0, -35, 0]}
               groupPositionY={250}
               description={activeServiceDescription}
               activeService={activeService}
+              rotate={true}
             >
               {servicesAvailable.map((service, id) => (
                 <div
