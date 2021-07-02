@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGLTFLoader, useAnimations } from 'drei';
+import { useGLTFLoader,  } from 'drei';
 
 function Model({ url }) {
   

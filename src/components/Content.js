@@ -17,7 +17,7 @@ const Content = ({
   activeService,
   status,
 }) => {
-  const { nodes, scene, materials, animations } = useLoader(
+  const {  animations } = useLoader(
     GLTFLoader,
     modelPath
   );
@@ -33,11 +33,11 @@ const Content = ({
   useEffect(() => {
     console.log(status);
     document.body.style.background = bgColor;
-    if (status == 0) {
+    if (status === 0) {
       ref.current = { idle: mixer.clipAction(animations[0], group.current) };
       ref.current.idle.play();
     }
-  }, [bgColor, description]);
+  }, [bgColor, description,animations,mixer,status]);
 
   return (
     <Section factor={1.5} offset={1}>
