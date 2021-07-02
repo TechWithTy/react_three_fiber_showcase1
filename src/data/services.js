@@ -8,7 +8,7 @@ export const servicesAvailable = [
   {
     title: 'Search Engine Optimization & Marketing',
     description:
-      'With our fast, robust, and user-friendly applications your business will rank higher in search engines, which in turn helps bring more qualified potential customers to your sites and eventually increases conversion rates.',
+      'With our  applications your business will rank higher in search engines, which in turn helps bring more qualified potential customers to your sites and eventually increases conversion rates.',
   },
   {
     title: 'Automation & Software',
