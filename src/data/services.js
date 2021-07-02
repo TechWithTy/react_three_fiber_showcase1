@@ -1,7 +1,7 @@
 export const servicesAvailable = [
   {
     title: 'Web-Applications & Mobile Applications',
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ut molestiae mollitia iusto, sint qui ipsam, fugit velit perspiciatis quasi inventore? Optio, porro saepe non quidem vero repellat error similique.",
+    description: "Establish Your Online Presence And Grow Your Business",
   },
 
   {
@@ -15,4 +15,4 @@ export const servicesAvailable = [
 ];
 
 
-export const initialQuote = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aut assumenda est quidem magni. Quia quaerat nobis aliquam totam eum ut provident, itaque iusto! Voluptatem soluta iste non officiis voluptas."
+export const initialQuote = "Engage and Grow Your Customer Base"
