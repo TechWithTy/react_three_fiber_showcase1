@@ -1,4 +1,3 @@
-
 // Thank you to the great 3D animators
 // "Where a Forest Grows" (https://skfb.ly/6TrT9) by Wren MB is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 //"Robot Playground" (https://skfb.ly/6QXFq) by Hadrien59 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
@@ -82,25 +81,25 @@ textarea {
 }
 
 button#close-button {
-    font-size: 1.5em;
-    margin: .5em;
-    color: white;
+  font-size: 1.5em;
+  margin: 0.5em;
+  color: white;
 }
 button:hover {
   background: #e5e5e5;
   -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-          box-shadow: inset 0px 0px 5px #c1c1c1;
-   outline: none;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
 }
-.ReactModal__Overlay.ReactModal__Overlay--after-open{
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
   background-color: transparent !important;
 }
 
 .Toastify__toast--default {
-    background: #00ff1f !important;
-    color: #fff !important;
-    text-align: center;
+  background: #00ff1f !important;
+  color: #fff !important;
+  text-align: center;
 }
 label {
   line-height: 2;
@@ -113,11 +112,11 @@ label {
   font-weight: 200;
   text-align: center;
 }
-img.logo{
-  width: 10% ;
+img.logo {
+  width: 10%;
 }
-button#contact-us{
-  background-color: transparent;
+button#contact-us {
+  background-color: #fff;
   border-color: white;
   color: #000000;
 }
@@ -184,6 +183,7 @@ hr {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  border-radius: 20%;
 }
 .contact-us-title {
   text-align: center;
@@ -249,7 +249,6 @@ header {
   }
 }
 
-
 li.services {
   list-style: none;
   cursor: pointer;
@@ -259,7 +258,7 @@ li.services {
 .services.SearchEngineOptimization\&Marketing,
 .services.Automation\&Software {
   transition: all 0.2s ease-in-out;
-text-shadow: -4px 1px 2px #000000;
+  text-shadow: -4px 1px 2px #000000;
   -webkit-animation: scale-up-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
@@ -367,51 +366,49 @@ blockquote {
   background: #075544;
 }
 
-
 @media screen and (max-width: 1000px) {
-
-  .ReactModal__Content.ReactModal__Content--after-open{
+  .ReactModal__Content.ReactModal__Content--after-open {
     width: 70% !important;
   }
- .title {
- text-align: center;
-  margin: 0 0;
- }
+  .title {
+    text-align: center;
+    margin: 0 0;
+  }
 
- img.logo {
-    width: 10% ;
-}
+  img.logo {
+    width: 10%;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  li.services{
+  li.services {
     margin: 1em 1em;
   }
 
-   img.logo {
-    width: 20%  !important;
-}
-li.btn{
-  margin: 0 !important;
-}
+  img.logo {
+    width: 20% !important;
+  }
+  li.btn {
+    margin: 0 !important;
+  }
 }
 
 @media screen and (max-width: 505px) {
-  li.services{
-    margin: .5em .5em;
+  li.services {
+    margin: 0.5em 0.5em;
   }
-blockquote{
-  font-size: .8em;
-}
+  blockquote {
+    font-size: 0.8em;
+  }
   img.logo {
-    width: 30%  !important;
-}
-}
-  @media screen and (max-width: 405px) {
-  li.services{
-    margin: .2em .2em;
+    width: 30% !important;
   }
-  .ReactModal__Content.ReactModal__Content--after-open{
+}
+@media screen and (max-width: 405px) {
+  li.services {
+    margin: 0.2em 0.2em;
+  }
+  .ReactModal__Content.ReactModal__Content--after-open {
     width: 100% !important;
   }
 }
@@ -451,4 +448,3 @@ blockquote{
     transform-origin: 50% 0;
   }
 }
-
