@@ -60,11 +60,12 @@ let windowWidth = window.innerWidth;
               bgColor="#dee9be"
               modelPath="/tree.gltf"
               meshPosition={
-                windowWidth >= 1000 ? [500, -300, -450] : [0, -300, -300]
+                windowWidth >= 1000 ? [500, -300, -550] : [0, -300, -300]
               }
               groupPositionY={250}
               description={activeServiceDescription}
               activeService={activeService}
+              status={0}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -97,6 +98,7 @@ let windowWidth = window.innerWidth;
               meshPosition={[1000, -35, -1000]}
               description={activeServiceDescription}
               activeService={activeService}
+              status={1}
             >
               {servicesAvailable.map((service, id) => (
                 <div
@@ -128,6 +130,7 @@ let windowWidth = window.innerWidth;
               meshPosition={windowWidth >= 1000 ? [45, -15, 50]: [0,-10,50]}
               description={activeServiceDescription}
               activeService={activeService}
+              status={0}
             >
               {servicesAvailable.map((service, id) => (
                 <div
