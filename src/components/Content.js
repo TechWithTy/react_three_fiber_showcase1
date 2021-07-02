@@ -46,7 +46,7 @@ const Content = ({
           ref={group}
           position={[meshPosition[0], meshPosition[1], meshPosition[2]]}
         >
-          <Model url={modelPath} />
+          <Model url={modelPath} activeService={activeService} />
         </mesh>
 
         <Html fullscreen portal={domContent}>
