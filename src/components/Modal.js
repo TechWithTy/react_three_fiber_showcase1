@@ -1,3 +1,5 @@
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import emailjs from 'emailjs-com';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -97,6 +99,16 @@ function ContactModal({ modalOpen, setModalState, toast, ToastContainer }) {
           onClick={() => setModalState()}
         >
           X
+        </button>
+        <button
+          id="facebook-button"
+          className="facebook-button"
+          onClick={() => {
+            window.open('https://www.facebook.com/YourCyberOni/', '_blank');
+          }}
+        >
+          {' '}
+          <FontAwesomeIcon size="lg" color="#1877f2" icon={faFacebookSquare} />
         </button>
 
         <div className="ContactForm">
